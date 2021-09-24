@@ -2,45 +2,47 @@ import React, {Fragment, useEffect, useState, useRef} from "react"
 
 import {useDispatch, useSelector} from "react-redux"
 import {addNewUser} from "../actions/userAction"
+import { RootState } from "../reducers"
+import { UsersType } from "../reducers/userReducers"
 /*import {getUserData} from "../actions/userAction";*/
 
 const User = () => {
-    const [check, setCheck] = useState(false)
-    const user = useSelector((state => state.user.users))
-    const textName = useRef("")
-    const textAt = useRef("")
-    const textImg = useRef("")
-    let dispatch = useDispatch()
+
+    const [check, setCheck] = useState<boolean>(false)
+    const user = useSelector((state: RootState) => state.user.users)
+    const textName = useRef<HTMLInputElement>(null)
+    const textAt = useRef<HTMLInputElement>(null)
+    const textImg = useRef<HTMLInputElement>(null)
+    const dispatch = useDispatch()
 
     /*  useEffect(() => {
           dispatch(getUserData())
       }, [])*/
 
-    let getValue = () => {
-        const requestDate = {
-            id: Math.floor(Math.random() * 10 * user.length),
-            name: textName.current.value,
-            registeredAt: textAt.current.value,
-            img: textImg.current.value,
-            isBanned: check
+    let getValue = (): void => {
+        if(textName.current !== null && textAt.current !== null && textImg.current !== null) {
+            const requestDate: UsersType  = {
+                id: Math.floor(Math.random() * 10 * user.length),
+                name: textName.current.value,
+                isBanned: check,
+                registeredAt: textAt.current.value,
+                image: textImg.current.value
+            }
+
+            dispatch(addNewUser(requestDate))
+            //console.log(requestDate, 'requestDate')
         }
 
-        dispatch(addNewUser(requestDate))
-        console.log(requestDate, 'requestDate')
     }
 
-    /* const remove = (registeredAt) => {
+  /*   const remove = (registeredAt) => {
          dispatch(deleteValue(registeredAt))
      }
- */
-    let checked = (e) => {
-
-    }
-
+   */
     return (
         <Fragment>
             <div>
-                <div>Banned:<input type="checkbox"  onChange={(e) => setCheck(e.target.checked)} defaultChecked/></div>
+                <div>Banned:<input type="checkbox"  onChange={(e: any) => setCheck(e.target.checked)} defaultChecked/></div>
                 <div><label htmlFor="new-task">name</label><input id="new-task" type="text" ref={textName}/></div>
                 <div><label htmlFor="new-task">RegisteredAt</label><input id="new-task" type="text" ref={textAt}/></div>
                 <div><label htmlFor="new-task">Img</label><input id="new-task" type="text" ref={textImg}/></div>

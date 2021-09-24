@@ -1,10 +1,10 @@
 import React, {useState} from "react"
 import {NavLink} from "react-router-dom"
-import User from "./user"
 
 
-const Navbar = () => {
-    const [toggleState, setToggle] = useState(1)
+
+const Navbar: React.FC = () => {
+    //const [toggleState, setToggle] = useState<number>(1)
 
     return (
         <nav className="nav">

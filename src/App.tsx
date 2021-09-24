@@ -7,10 +7,11 @@ import User from "./components/user"
 import Post from "./components/post"
 import Navbar from "./components/navbar"
 import Header from "./components/header"
+import { RootState } from "./reducers"
 
-const App = () => {
+const App: React.FC = () => {
 
-    const existUser = useSelector((state) => state.form.isExist)
+    const existUser = useSelector((state: RootState) => state.form.isExist)
     return (
         <div className="App">
             {!existUser && <Route path="/" component={() => <Form />}/>}

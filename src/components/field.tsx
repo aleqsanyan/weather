@@ -1,6 +1,13 @@
 import React from 'react'
 
-const Field = React.forwardRef(({label, type}, ref) => {
+type PropsType = {
+    label: any
+    type: string
+}
+
+type Ref = HTMLInputElement
+
+const Field = React.forwardRef<Ref, PropsType>(({label, type}, ref) => {
     return (
         <div>
             <label className="label" >{label}</label>

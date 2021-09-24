@@ -1,12 +1,12 @@
 import React from "react"
-import {useDispatch, useSelector} from "react-redux"
+import {useDispatch} from "react-redux"
 
 import {logOut} from "../actions/formAction"
 
-const Header = () => {
+const Header: React.FC = () => {
     const dispatch = useDispatch()
 
-    let  handelClick = () => {
+    const  handelClick = (): void => {
         dispatch(logOut())
     }
     return (

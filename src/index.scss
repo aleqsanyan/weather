@@ -1,4 +1,5 @@
-/* Basic Style */
+/*
+!* Basic Style *!
 body {
   background: #fff;
   color: #333;
@@ -52,7 +53,7 @@ body {
   }
 
 
-  /* Heading */
+  !* Heading *!
   h3,
   #new-task {
     color: #333;
@@ -81,7 +82,7 @@ body {
     color: #333;
   }
 
-  /* New Task */
+  !* New Task *!
   #new-task {
     display: block;
     margin: 0 0 20px;
@@ -96,7 +97,7 @@ body {
     color: #0FC57C;
   }
 
-  /* Task list */
+  !* Task list *!
   li {
     overflow: hidden;
     padding: 20px 0;
@@ -124,13 +125,13 @@ body {
     color: #CF2323;
   }
 
-  /* Completed */
+  !* Completed *!
   #completed-tasks label {
     text-decoration: line-through;
     color: #888;
   }
 
-  /* Edit Task */
+  !* Edit Task *!
   ul li input[type=text] {
     display: none;
   }
@@ -142,4 +143,4 @@ body {
   ul li.editMode label {
     display: none;
   }
-}
+}*/
