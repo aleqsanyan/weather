@@ -1,12 +1,11 @@
 import axios, {AxiosResponse, AxiosPromise} from "axios";
 import {GET_POST_DATA, UPDATE_NAME, EDIT_NAME, DELETE_POST} from "../constants";
-import { PostType } from "../reducers/postReducers";
 import {Dispatch} from "react";
 import {Actions} from "../reducers/formReducers";
 
 export type  GetPostDataType = {
     type: typeof GET_POST_DATA
-    payload: any
+    payload?: any
 }
 
 export interface ObjectType {
@@ -31,8 +30,9 @@ export type DeletePostType = {
 }
 
 
-export const getPostData = () => (dispatch: Dispatch<GetPostDataType>) => {
-    axios.get('https://asdsystems.free.beeceptor.com/post')
+export const setUrlToApp = (name) => (dispatch: Dispatch<GetPostDataType>) => {
+    debugger
+    axios.get('https://api.openweathermap.org/data/2.5/weather?q=' + name + '&appid=32427e330d8e8c56686efa7b0de589cf')
         .then(res => {
             dispatch({
                 type: GET_POST_DATA,
